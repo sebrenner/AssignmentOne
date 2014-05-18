@@ -10,6 +10,9 @@
 
 @interface SEBViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *flipLabel;
+@property (nonatomic) int flipCount;
+
 @end
 
 @implementation SEBViewController
@@ -25,5 +28,25 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)touchInCard:(UIButton *)sender {
+    if ([sender.currentTitle length]) {
+        [sender setBackgroundImage:[UIImage imageNamed:@"cardBack"] forState:normal];
+        [sender setTitle:@"" forState:normal];
+    }else{
+        [sender setBackgroundImage:[UIImage imageNamed:@"cardFront"] forState:normal];
+        [sender setTitle:@"A♣️" forState:normal];
+    }
+    NSLog(@"got to the end of touchInCard");
+    self.flipCount++;
+    
+}
+
+- (void) setFlipCount:(int)flipCount{
+    _flipCount = flipCount;
+    self.flipLabel.text = [NSString stringWithFormat:@"Flips: %d", self.flipCount];
+    NSLog(@"Flip count set to %d", self.flipCount);
+}
+
 
 @end
