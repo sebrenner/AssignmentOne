@@ -16,7 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *flipLabel;
 @property (nonatomic) int flipCount;
-@property (strong, nonatomic) playingCardDeck *theDeck;
+@property (strong, nonatomic) Deck *deck;
 
 @end
 
@@ -36,20 +36,25 @@
 
 - (IBAction)touchInCard:(UIButton *)sender {
     if ([sender.currentTitle length]) {
+        // User is looking at the front of the card, so show back.
         [sender setBackgroundImage:[UIImage imageNamed:@"cardBack"] forState:normal];
         [sender setTitle:@"" forState:normal];
         NSLog(@"in touchInCard, with title");
     }else{
+        // User is looking at the back of the card, so show front.
         [sender setBackgroundImage:[UIImage imageNamed:@"cardFront"] forState:normal];
-        NSLog(@"in touchInCard, without title");
-//        playingCardDeck *theJunkDeck = [[playingCardDeck alloc]init];
-//        NSLog(@"The junk deck %@",theJunkDeck);
-        
-        PlayingCard *theCard = [self.theDeck drawRandomCard];
-        
-        [sender setTitle:[theCard contents] forState:normal];
+        // draw a random card
+        Card *card = [self.deck drawRandomCard];
+        if (card) {
+            NSLog(@"User drew: %@", card.contents);
+            // set title to contents of card
+            [sender setTitle:card.contents forState:normal];
+        }else{
+            [sender setTitle:@"No more cards." forState:normal];
+            [sender setBackgroundImage:nil forState:normal];
+            sender.enabled = NO;
+        }
     }
-//    NSLog(@"got to the end of touchInCard");
     self.flipCount++;
 }
 
@@ -60,16 +65,12 @@
 }
 
 
-- (playingCardDeck *) theDeck{
-    if (!_theDeck){
-        _theDeck = [[playingCardDeck alloc] init];
-        NSLog(@"just instantiantiated theDeck, lazily.  See:%@", _theDeck);
+- (Deck*) deck{
+    if (!_deck){
+        _deck = [[playingCardDeck alloc] init];
+        NSLog(@"just instantiantiated theDeck, lazily.  See:%@", _deck);
     }
-    
-//    for (PlayingCard *theCard in self.theDeck) {
-//        NSLog(@"Card: %@", theCard);
-//    }
-    return _theDeck;
+    return _deck;
 }
 
 @end

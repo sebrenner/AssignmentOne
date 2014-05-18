@@ -14,7 +14,7 @@
 -(instancetype)init{
     NSLog(@"initializing a playingCardDeck.");
     self = [super init];
-    
+    int cardCounter = 1;
     if (self){
         for (NSString *suit in [PlayingCard validSuits]){
             for (NSUInteger rank = 1; rank <= [PlayingCard maxRank]; rank++) {
@@ -22,14 +22,11 @@
                 card.rank = rank;
                 card.suit = suit;
                 [self addCard:card];
-                NSLog(@"Created card: %@", card.contents);
+                NSLog(@"Card count: %d - Created card: %@", cardCounter, card.contents);
+                cardCounter++;
             }
         }
     }
-//    NSLog(@"here is the playingCardDeck: %@", self);
-//    NSLog(@"the card in playingCardDeck: %@", [self drawRandomCard].contents);
-    NSLog(@"In playingcarddeck init.  Size of deck: %d", [self count]);
-
     return self;
 }
 
