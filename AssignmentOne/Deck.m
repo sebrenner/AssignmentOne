@@ -30,10 +30,12 @@
 
 -(Card *)drawRandomCard{
     Card *randomCard = nil;
+    NSLog(@"In drawRandom.  Size of deck: %d", [self.cards count]);
     
     if ([self.cards count]) {
         unsigned index = arc4random() % [self.cards count];
         randomCard = self.cards[index];
+        NSLog(@"here is a random card: %@", randomCard.contents);
         [self.cards removeObjectAtIndex:index];
     }
     

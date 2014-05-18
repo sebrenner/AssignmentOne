@@ -25,6 +25,7 @@
 		367104C319283116002D837F /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 367104C219283116002D837F /* Card.m */; };
 		367104C71928326C002D837F /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 367104C61928326C002D837F /* PlayingCard.m */; };
 		367104CA19285CC8002D837F /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 367104C919285CC8002D837F /* Deck.m */; };
+		367104CD192863EF002D837F /* playingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 367104CC192863EF002D837F /* playingCardDeck.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		367104C61928326C002D837F /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCard.m; sourceTree = "<group>"; };
 		367104C819285CC8002D837F /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
 		367104C919285CC8002D837F /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
+		367104CB192863EF002D837F /* playingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playingCardDeck.h; sourceTree = "<group>"; };
+		367104CC192863EF002D837F /* playingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playingCardDeck.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +177,8 @@
 				367104C919285CC8002D837F /* Deck.m */,
 				367104C51928326C002D837F /* PlayingCard.h */,
 				367104C61928326C002D837F /* PlayingCard.m */,
+				367104CB192863EF002D837F /* playingCardDeck.h */,
+				367104CC192863EF002D837F /* playingCardDeck.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -283,6 +288,7 @@
 				367104C71928326C002D837F /* PlayingCard.m in Sources */,
 				367104CA19285CC8002D837F /* Deck.m in Sources */,
 				367104C319283116002D837F /* Card.m in Sources */,
+				367104CD192863EF002D837F /* playingCardDeck.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
